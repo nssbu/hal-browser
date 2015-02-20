@@ -9,6 +9,9 @@ HAL.Http.Client.prototype.get = function(url) {
   var jqxhr = $.ajax({
     url: url,
     dataType: 'json',
+    xhrFields: {
+      withCredentials: true
+    },
     success: function(resource, textStatus, jqXHR) {
       self.vent.trigger('response', {
         resource: resource,
